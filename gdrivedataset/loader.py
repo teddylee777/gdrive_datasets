@@ -3,14 +3,26 @@ import urllib.request
 import zipfile
 import os
 
+# reference @ https://gldmg.tistory.com/141
+# treating Hangul encoding problem
+def unzip(source_file, dest_path):
+    with zipfile.ZipFile(source_file, 'r') as zf:
+        zipInfo = zf.infolist()
+        for member in zipInfo:
+            try:
+                print(member.filename.encode('cp437').decode('euc-kr', 'ignore'))
+                member.filename = member.filename.encode('cp437').decode('euc-kr', 'ignore')
+                zf.extract(member, dest_path)
+            except:
+                print(source_file)
+                raise Exception('unzipping error')
+
 
 def load_from_google_drive(file_id, folder='data/'):
     gdd.download_file_from_google_drive(file_id=file_id, dest_path='./dataset.zip')
 
     local_zip = 'dataset.zip'
-    zip_ref = zipfile.ZipFile(local_zip, 'r')
-    zip_ref.extractall(folder)
-    zip_ref.close()
+    unzip(local_zip, folder)
 
     for f in os.listdir(folder):
         print(os.path.join(folder, f))
