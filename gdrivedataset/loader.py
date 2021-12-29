@@ -10,7 +10,6 @@ def unzip(source_file, dest_path):
         zipInfo = zf.infolist()
         for member in zipInfo:
             try:
-                print(member.filename.encode('cp437').decode('euc-kr', 'ignore'))
                 member.filename = member.filename.encode('cp437').decode('euc-kr', 'ignore')
                 zf.extract(member, dest_path)
             except:
