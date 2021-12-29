@@ -23,5 +23,8 @@ def load_from_google_drive(file_id, folder='data/'):
     local_zip = 'dataset.zip'
     unzip(local_zip, folder)
 
+    print('========== files ============', end='\n\n')
     for f in os.listdir(folder):
         print(os.path.join(folder, f))
+    print('\n=============================')
+

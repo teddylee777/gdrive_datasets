@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='gdrive-dataset',
-    version='0.0.3',
+    version='0.0.5',
     description='easy downloader for google drive datasets',
     author='teddylee777',
     author_email='teddylee777@gmail.com',
