@@ -2,11 +2,11 @@ from setuptools import setup, find_packages
 
 setup(
     name='gdrive-dataset',
-    version='0.0.5',
+    version='0.0.6',
     description='easy downloader for google drive datasets',
     author='teddylee777',
     author_email='teddylee777@gmail.com',
-    url='https://github.com/teddylee777/datasets',
+    url='https://github.com/teddylee777/gdrive_datasets',
     install_requires=['googledrivedownloader'],
     packages=find_packages(exclude=[]),
     keywords=['dacon', 'teddylee777'],
